@@ -1,0 +1,21 @@
+name: Task
+description: Criação de task.
+title: "Task: "
+body:
+    - type: textarea
+      id: description
+      attributes:
+          label: Descrição da tarefa
+          description: Descrição detalhada do que é necessário para realizar a tarefa
+      validations:
+          required: true
+    - type: textarea
+      id: assets
+      attributes:
+          label: Contexto Adicional
+          description: Área para inserir anexos e outros dados importantes sobre a tarefa
+    - type: textarea
+      id: related
+      attributes:
+          label: Locais Relacionados
+          description: Insira aqui os repositórios, PRs, Issues, Organizações e demais URLs relacionadas à essa tarefa
