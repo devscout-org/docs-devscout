@@ -1,6 +1,6 @@
 # Termos de serviço
 
-> Estes termos de serviço estarão válidos a partir de 01/07/2025 de acordo com a seção "[Atualização destes Termos](#_6-atualização-destes-termos)"
+> Estes termos de serviço estarão válidos a partir de 01/07/2025 de acordo com a seção "[Atualização destes Termos](#_6-atualizacao-destes-termos)"
 
 Boas vindas à DevScout!
 
