@@ -18,16 +18,55 @@ export default defineConfig({
 
         sidebar: [
             {
-                text: "Examples",
+                text: "Tutoriais",
                 items: [
-                    { text: "Markdown Examples", link: "/markdown-examples" },
-                    { text: "Runtime API Examples", link: "/api-examples" },
+                    {
+                        text: "Se cadastrando na plataforma",
+                        link: "/tutorials/registering",
+                    },
+                    {
+                        text: "Configurando a busca automática",
+                        link: "/tutorials/automatic-search",
+                    },
+                    {
+                        text: "Entrando em contato com o suporte",
+                        link: "/tutorials/contact-support",
+                    },
+                    {
+                        text: "Dicas e métodos para candidaturas",
+                        link: "/tutorials/tips-and-methods-for-applications",
+                    },
+                ],
+            },
+            {
+                text: "Changelog e Roadmap",
+                link: "/changelog-and-roadmap",
+            },
+            {
+                text: "Planos",
+                link: "/changelog-and-roadmap",
+            },
+            {
+                text: "Informações técnicas",
+                items: [
+                    {
+                        text: "Detalhes técnicos da DevScout",
+                        link: "/technical-informations/main",
+                    },
+                    {
+                        text: "Limites aplicáveis na plataforma",
+                        link: "/technical-informations/limits",
+                    },
+                    {
+                        text: "Manutenções programadas e disponibilidade",
+                        link: "/technical-informations/availability",
+                    },
                 ],
             },
         ],
 
         socialLinks: [
-            { icon: "github", link: "https://github.com/vuejs/vitepress" },
+            { icon: "linkedin", link: "https://github.com/vuejs/vitepress" },
         ],
     },
 });
