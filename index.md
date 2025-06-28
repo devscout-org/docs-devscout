@@ -8,16 +8,16 @@ hero:
     actions:
         - theme: brand
           text: 📚 Ver Tutoriais
-          link: /markdown-examples
+          link: /tutorials/main
         - theme: alt
           text: 🗺️ Changelog e roadmap
-          link: /markdown-examples
+          link: /changelog-and-roadmap
         - theme: alt
           text: 💎 Nossos planos
-          link: /api-examples
+          link: /plans
         - theme: alt
           text: 🧰 Informações técnicas
-          link: /api-examples
+          link: /technical-informations/main
 
 features:
     - title: 🛠️ Configurando a busca automática
