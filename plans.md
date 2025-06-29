@@ -52,7 +52,6 @@ Ideal para quem busca um alcance ainda maior, o Plano Hunter oferece funcionalid
 | Analytics avançados      | Relatórios detalhados |
 | Múltiplos usuários       | 5 usuários            |
 | Templates personalizados | 50 templates          |
-| API Access               | REST API              |
 
 ## ✈️ Plano Master
 
