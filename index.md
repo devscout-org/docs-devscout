@@ -19,9 +19,6 @@ hero:
           text: 🧰 Informações técnicas
           link: /technical-informations/main
         - theme: alt
-          text: fd fds fsd
-          link: /technical-informations/main
-        - theme: alt
           text: ❓ FAQ
           link: /faq
 features:
