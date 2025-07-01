@@ -18,7 +18,12 @@ hero:
         - theme: alt
           text: 🧰 Informações técnicas
           link: /technical-informations/main
-
+        - theme: alt
+          text: fd fds fsd
+          link: /technical-informations/main
+        - theme: alt
+          text: ❓ FAQ
+          link: /faq
 features:
     - title: 🛠️ Configurando a busca automática
       details: Como configurar o seu perfil para buscar e se candidatar em oportunidades automaticamente, excluindo vagas indesejadas e selecionando o melhor match para suas buscas.

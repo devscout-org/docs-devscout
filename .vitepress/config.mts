@@ -16,6 +16,10 @@ export default defineConfig({
                 text: "Informações técnicas",
                 link: "/technical-informations/main",
             },
+            {
+                text: "FAQ",
+                link: "/faq",
+            },
         ],
 
         sidebar: [
