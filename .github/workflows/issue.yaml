@@ -1,8 +1,10 @@
-name: Notify Discord on Issue Creation
+name: Notify Discord on Issue Events
 
 on:
   issues:
-    types: [opened]
+    types: [opened, closed]
+  issue_comment:
+    types: [created]
 
 jobs:
   notify-discord:
@@ -12,26 +14,58 @@ jobs:
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
-          ISSUE_TITLE="${{ github.event.issue.title }}"
-          ISSUE_BODY="${{ github.event.issue.body }}"
-          ISSUE_URL="${{ github.event.issue.html_url }}"
-          ISSUE_USER="${{ github.event.issue.user.login }}"
-          PAYLOAD=$(jq -n \
-            --arg title "[growly-group/docs-devscout] $ISSUE_TITLE" \
-            --arg url "$ISSUE_URL" \
-            --arg body "$ISSUE_BODY" \
-            --arg user "$ISSUE_USER" \
-            '{
-              "embeds": [
-                {
-                  "title": $title,
-                  "url": $url,
-                  "description": $body,
-                  "color": 5814783,
-                  "author": {
-                    "name": $user
+          if [[ "${{ github.event_name }}" == "issues" ]]; then
+            ISSUE_TITLE="${{ github.event.issue.title }}"
+            ISSUE_BODY="${{ github.event.issue.body }}"
+            ISSUE_URL="${{ github.event.issue.html_url }}"
+            ISSUE_USER="${{ github.event.issue.user.login }}"
+            if [[ "${{ github.event.action }}" == "opened" ]]; then
+              STATUS="opened"
+              DESCRIPTION="$ISSUE_BODY"
+            elif [[ "${{ github.event.action }}" == "closed" ]]; then
+              STATUS="closed"
+              DESCRIPTION="This issue has been closed."
+            fi
+            PAYLOAD=$(jq -n \
+              --arg title "[growly-group/docs-devscout] Issue $STATUS: $ISSUE_TITLE" \
+              --arg url "$ISSUE_URL" \
+              --arg description "$DESCRIPTION" \
+              --arg user "$ISSUE_USER" \
+              '{
+                "embeds": [
+                  {
+                    "title": $title,
+                    "url": $url,
+                    "description": $description,
+                    "color": 5814783,
+                    "author": {
+                      "name": $user
+                    }
                   }
-                }
-              ]
-            }')
+                ]
+              }')
+          elif [[ "${{ github.event_name }}" == "issue_comment" ]]; then
+            ISSUE_TITLE="${{ github.event.issue.title }}"
+            ISSUE_URL="${{ github.event.issue.html_url }}"
+            COMMENT_BODY="${{ github.event.comment.body }}"
+            COMMENT_USER="${{ github.event.comment.user.login }}"
+            PAYLOAD=$(jq -n \
+              --arg title "[growly-group/docs-devscout] New comment on: $ISSUE_TITLE" \
+              --arg url "$ISSUE_URL" \
+              --arg description "$COMMENT_BODY" \
+              --arg user "$COMMENT_USER" \
+              '{
+                "embeds": [
+                  {
+                    "title": $title,
+                    "url": $url,
+                    "description": $description,
+                    "color": 5814783,
+                    "author": {
+                      "name": $user
+                    }
+                  }
+                ]
+              }')
+          fi
           curl -H "Content-Type: application/json" -X POST -d "$PAYLOAD" "$DISCORD_WEBHOOK"
