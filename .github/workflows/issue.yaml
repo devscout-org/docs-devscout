@@ -17,7 +17,7 @@ jobs:
           ISSUE_URL="${{ github.event.issue.html_url }}"
           ISSUE_USER="${{ github.event.issue.user.login }}"
           PAYLOAD=$(jq -n \
-            --arg title "$ISSUE_TITLE" \
+            --arg title "[growly-group/docs-devscout] $ISSUE_TITLE" \
             --arg url "$ISSUE_URL" \
             --arg body "$ISSUE_BODY" \
             --arg user "$ISSUE_USER" \
