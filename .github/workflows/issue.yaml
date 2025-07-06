@@ -14,23 +14,29 @@ jobs:
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
+          sanitize() {
+            echo "$1" | jq -Rsa .
+          }
+
           if [[ "${{ github.event_name }}" == "issues" ]]; then
-            ISSUE_TITLE="${{ github.event.issue.title }}"
-            ISSUE_BODY="${{ github.event.issue.body }}"
-            ISSUE_URL="${{ github.event.issue.html_url }}"
-            ISSUE_USER="${{ github.event.issue.user.login }}"
+            ISSUE_TITLE=$(sanitize "${{ github.event.issue.title }}")
+            ISSUE_BODY=$(sanitize "${{ github.event.issue.body }}")
+            ISSUE_URL=$(sanitize "${{ github.event.issue.html_url }}")
+            ISSUE_USER=$(sanitize "${{ github.event.issue.user.login }}")
+
             if [[ "${{ github.event.action }}" == "opened" ]]; then
               STATUS="opened"
-              DESCRIPTION="$ISSUE_BODY"
+              DESCRIPTION=$ISSUE_BODY
             elif [[ "${{ github.event.action }}" == "closed" ]]; then
               STATUS="closed"
-              DESCRIPTION="This issue has been closed."
+              DESCRIPTION=$(sanitize "This issue has been closed.")
             fi
+
             PAYLOAD=$(jq -n \
-              --arg title "[growly-group/docs-devscout] Issue $STATUS: $ISSUE_TITLE" \
-              --arg url "$ISSUE_URL" \
-              --arg description "$DESCRIPTION" \
-              --arg user "$ISSUE_USER" \
+              --argjson title $ISSUE_TITLE \
+              --argjson url $ISSUE_URL \
+              --argjson description $DESCRIPTION \
+              --argjson user $ISSUE_USER \
               '{
                 "embeds": [
                   {
@@ -45,15 +51,16 @@ jobs:
                 ]
               }')
           elif [[ "${{ github.event_name }}" == "issue_comment" ]]; then
-            ISSUE_TITLE="${{ github.event.issue.title }}"
-            ISSUE_URL="${{ github.event.issue.html_url }}"
-            COMMENT_BODY="${{ github.event.comment.body }}"
-            COMMENT_USER="${{ github.event.comment.user.login }}"
+            ISSUE_TITLE=$(sanitize "${{ github.event.issue.title }}")
+            ISSUE_URL=$(sanitize "${{ github.event.issue.html_url }}")
+            COMMENT_BODY=$(sanitize "${{ github.event.comment.body }}")
+            COMMENT_USER=$(sanitize "${{ github.event.comment.user.login }}")
+
             PAYLOAD=$(jq -n \
-              --arg title "[growly-group/docs-devscout] New comment on: $ISSUE_TITLE" \
-              --arg url "$ISSUE_URL" \
-              --arg description "$COMMENT_BODY" \
-              --arg user "$COMMENT_USER" \
+              --argjson title "$(sanitize "[growly-group/docs-devscout] New comment on: ${ISSUE_TITLE}")" \
+              --argjson url $ISSUE_URL \
+              --argjson description $COMMENT_BODY \
+              --argjson user $COMMENT_USER \
               '{
                 "embeds": [
                   {
@@ -68,4 +75,5 @@ jobs:
                 ]
               }')
           fi
+
           curl -H "Content-Type: application/json" -X POST -d "$PAYLOAD" "$DISCORD_WEBHOOK"
