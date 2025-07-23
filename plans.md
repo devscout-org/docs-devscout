@@ -74,7 +74,7 @@ Plano gratuito para começar a usar a DevScout com funcionalidades básicas.
 
 Plano exclusivo para founders existentes (não disponível para venda).
 
-**Valor mensal: R$100,00** | **Valor anual: R$1.000,00**
+**Valor mensal: R$100,00** 
 
 **Recursos Inclusos**
 
