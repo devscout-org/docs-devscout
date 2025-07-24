@@ -62,6 +62,7 @@ npm run docs:preview
 -   **feature/\***: Novas funcionalidades/documentação
 -   **fix/\***: Correções e melhorias
 
+**Nota**: As branches são automaticamente deletadas após o merge do PR.
 ### 2. Fluxo de Trabalho
 
 1. **Crie uma branch** para suas mudanças:
