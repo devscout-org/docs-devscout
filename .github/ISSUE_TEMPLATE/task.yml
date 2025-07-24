@@ -1,6 +1,6 @@
 name: Task
 description: Criação de task.
-title: "Task: "
+title: "feat or bug?:  "
 body:
     - type: textarea
       id: description

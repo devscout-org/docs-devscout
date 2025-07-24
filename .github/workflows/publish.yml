@@ -23,6 +23,22 @@ jobs:
             - name: Build VitePress site
               run: npx vitepress build
 
+            - name: Verify Cloudflare configuration
+              run: |
+                  if [ -z "${{ secrets.CLOUDFLARE_API_TOKEN }}" ]; then
+                    echo "❌ CLOUDFLARE_API_TOKEN is not set"
+                    exit 1
+                  fi
+                  if [ -z "${{ secrets.CLOUDFLARE_ACCOUNT_ID }}" ]; then
+                    echo "❌ CLOUDFLARE_ACCOUNT_ID is not set"
+                    exit 1
+                  fi
+                  if [ -z "${{ secrets.CLOUDFLARE_PAGES_PROJECT_NAME }}" ]; then
+                    echo "❌ CLOUDFLARE_PAGES_PROJECT_NAME is not set"
+                    exit 1
+                  fi
+                  echo "✅ All Cloudflare secrets are configured"
+
             - name: Publish to Cloudflare Pages
               uses: cloudflare/pages-action@v1
               with:
