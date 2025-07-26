@@ -138,7 +138,7 @@ A branch `main` está protegida com:
 
 ## 📊 Status do Deploy
 
--   **URL de Produção**: https://devscout-docs.pages.dev/
+-   **URL de Produção**: https://docs.devscout.app/
 -   **Status**: Automático via GitHub Actions
 -   **Build**: VitePress → Cloudflare Pages
 
