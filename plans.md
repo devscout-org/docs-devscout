@@ -1,6 +1,6 @@
 # Nossos Planos
 
-> Última atualização: 23/07/2025
+> Última atualização: 28/07/2025
 
 ## 🏃 Plano Scout Starter
 
