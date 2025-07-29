@@ -62,7 +62,7 @@ export default defineConfig({
                     {
                         text: "Limites aplicáveis na plataforma",
                         link: "/technical-informations/limits",
-                    },p
+                    },
                     {
                         text: "Manutenções programadas e disponibilidade",
                         link: "/technical-informations/availability",
