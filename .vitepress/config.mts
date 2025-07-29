@@ -50,7 +50,7 @@ export default defineConfig({
             },
             {
                 text: "Planos",
-                link: "/changelog-and-roadmap",
+                link: "/plans",
             },
             {
                 text: "Informações técnicas",
@@ -62,7 +62,7 @@ export default defineConfig({
                     {
                         text: "Limites aplicáveis na plataforma",
                         link: "/technical-informations/limits",
-                    },
+                    },p
                     {
                         text: "Manutenções programadas e disponibilidade",
                         link: "/technical-informations/availability",
