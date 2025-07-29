@@ -1,12 +1,12 @@
 # Nossos Planos
 
-> Última atualização: 23/07/2025
+> Última atualização: 28/07/2025
 
 ## 🏃 Plano Scout Starter
 
 Ideal para quem está começando, o Plano Scout Starter oferece as funcionalidades essenciais para gerenciar e automatizar suas campanhas de email de forma simples e eficiente. Com limite diário de 50 envios e recursos avançados de segurança, é perfeito para procurar por uma vaga usando um orçamento menor, sem precisar se preocupar com valores muito altos.
 
-**Valor mensal: R$39,90**
+**Valor mensal: R$59,90**
 
 **Recursos Inclusos**
 
@@ -23,7 +23,7 @@ Ideal para quem está começando, o Plano Scout Starter oferece as funcionalidad
 
 Ideal para quem busca um pouco mais de alcance dentro da DevScout, o plano Scout Explorer te permite gerenciar e automatizar candidaturas de email com um limite diário de 150 envios e oferece. Com todos os recursos essenciais e suporte premium, é perfeito para quem deseja ampliar o alcance das suas campanhas mantendo o controle dos custos.
 
-**Valor mensal: R$79,90**
+**Valor mensal: R$99,90**
 
 **Recursos Inclusos**
 

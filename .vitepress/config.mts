@@ -50,7 +50,7 @@ export default defineConfig({
             },
             {
                 text: "Planos",
-                link: "/changelog-and-roadmap",
+                link: "/plans",
             },
             {
                 text: "Informações técnicas",
